@@ -25,6 +25,11 @@
 		04F3EE4822983F4100BF0446 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE4722983F4100BF0446 /* FlowManager.swift */; };
 		04F3EE4C22984E1400BF0446 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE4A22984E1400BF0446 /* TaskTableViewCell.swift */; };
 		04F3EE4D22984E1400BF0446 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3EE4B22984E1400BF0446 /* TaskTableViewCell.xib */; };
+		04F3EE4F2298890900BF0446 /* RoundedBorderdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE4E2298890900BF0446 /* RoundedBorderdTextField.swift */; };
+		04F3EE5522988D7700BF0446 /* TypePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5222988D7600BF0446 /* TypePickerViewController.swift */; };
+		04F3EE5622988D7700BF0446 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5322988D7700BF0446 /* DatePickerViewController.swift */; };
+		04F3EE5722988D7700BF0446 /* Picker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3EE5422988D7700BF0446 /* Picker.storyboard */; };
+		04F3EE5922988E4D00BF0446 /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5822988E4D00BF0446 /* RoundedShadowButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,11 @@
 		04F3EE4722983F4100BF0446 /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
 		04F3EE4A22984E1400BF0446 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		04F3EE4B22984E1400BF0446 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
+		04F3EE4E2298890900BF0446 /* RoundedBorderdTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderdTextField.swift; sourceTree = "<group>"; };
+		04F3EE5222988D7600BF0446 /* TypePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePickerViewController.swift; sourceTree = "<group>"; };
+		04F3EE5322988D7700BF0446 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		04F3EE5422988D7700BF0446 /* Picker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Picker.storyboard; sourceTree = "<group>"; };
+		04F3EE5822988E4D00BF0446 /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +132,7 @@
 		04F3EE2622980EBC00BF0446 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				04F3EE312298244700BF0446 /* ColorPickerPopup */,
+				04F3EE5022988D6000BF0446 /* Pickers */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -176,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				04F3EE3E2298320C00BF0446 /* RoundedShadowView.swift */,
+				04F3EE4E2298890900BF0446 /* RoundedBorderdTextField.swift */,
+				04F3EE5822988E4D00BF0446 /* RoundedShadowButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +241,25 @@
 				04F3EE4B22984E1400BF0446 /* TaskTableViewCell.xib */,
 			);
 			path = TaskTableViewCell;
+			sourceTree = "<group>";
+		};
+		04F3EE5022988D6000BF0446 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				04F3EE5122988D6600BF0446 /* DateAndTypePicker */,
+				04F3EE312298244700BF0446 /* ColorPickerPopup */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		04F3EE5122988D6600BF0446 /* DateAndTypePicker */ = {
+			isa = PBXGroup;
+			children = (
+				04F3EE5322988D7700BF0446 /* DatePickerViewController.swift */,
+				04F3EE5422988D7700BF0446 /* Picker.storyboard */,
+				04F3EE5222988D7600BF0446 /* TypePickerViewController.swift */,
+			);
+			path = DateAndTypePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +326,7 @@
 				04F3EE3A2298279900BF0446 /* ColorCollectionViewCell.xib in Resources */,
 				04F3EE352298248900BF0446 /* ColorPickerPopupView.xib in Resources */,
 				04F3EE1422980A6600BF0446 /* TaskManager.storyboard in Resources */,
+				04F3EE5722988D7700BF0446 /* Picker.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,13 +339,17 @@
 			files = (
 				04F3EE1122980A6600BF0446 /* TasksListHomeViewController.swift in Sources */,
 				04F3EE412298378A00BF0446 /* BaseViewController.swift in Sources */,
+				04F3EE5522988D7700BF0446 /* TypePickerViewController.swift in Sources */,
 				04F3EE3F2298320C00BF0446 /* RoundedShadowView.swift in Sources */,
 				04F3EE2B229813FD00BF0446 /* SystemColorsEnum.swift in Sources */,
 				04F3EE0F22980A6600BF0446 /* AppDelegate.swift in Sources */,
 				04F3EE1722980A6600BF0446 /* Task_Manager.xcdatamodeld in Sources */,
+				04F3EE5922988E4D00BF0446 /* RoundedShadowButton.swift in Sources */,
+				04F3EE4F2298890900BF0446 /* RoundedBorderdTextField.swift in Sources */,
 				04F3EE2D22981AE600BF0446 /* Extensions+UIView.swift in Sources */,
 				04F3EE3C229827C600BF0446 /* Extensions+UICollectionViewCell.swift in Sources */,
 				04F3EE4C22984E1400BF0446 /* TaskTableViewCell.swift in Sources */,
+				04F3EE5622988D7700BF0446 /* DatePickerViewController.swift in Sources */,
 				04F3EE4822983F4100BF0446 /* FlowManager.swift in Sources */,
 				04F3EE392298279900BF0446 /* ColorCollectionViewCell.swift in Sources */,
 				04F3EE332298247700BF0446 /* ColorPickerPopupView.swift in Sources */,

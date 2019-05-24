@@ -2,8 +2,8 @@
 //  FlowManager.swift
 //  Lagorta
 //
-//  Created by Mohamad Tarek on 19/4/19.
-//  Copyright © 2019 Mohamed Abd el-latef. All rights reserved.
+//  Created by Bassyouni on 5/24/19.
+//  Copyright © 2019 Bassyouni. All rights reserved.
 //
 
 import UIKit
@@ -28,6 +28,7 @@ class FlowManager {
     private func switchToMainModeController() {
         let tasksListHomeViewController = TasksListHomeViewController.instantiateFromStoryboard()
         let navigationController = UINavigationController(rootViewController: tasksListHomeViewController)
+        navigationController.navigationBar.prefersLargeTitles = true
         setRootViewController(viewController: navigationController)
     }
     

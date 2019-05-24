@@ -30,5 +30,4 @@ class BaseViewController: UIViewController {
             colorPickerView.presentPopupView()
         }
     }
-    
 }

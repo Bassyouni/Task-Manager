@@ -34,8 +34,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="kuk-7h-Vih">
                         <rightBarButtonItems>
-                            <barButtonItem id="WZ0-Xt-lRy"/>
-                            <barButtonItem id="fJY-kp-YFw"/>
+                            <barButtonItem systemItem="add" id="WZ0-Xt-lRy">
+                                <connections>
+                                    <action selector="addTaskButtonPressed:" destination="BYZ-38-t0r" id="yCa-n1-Bxi"/>
+                                    <segue destination="bWl-Fg-W1p" kind="push" id="a0u-Z8-kvc"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="settingsIcon" id="fJY-kp-YFw">
+                                <connections>
+                                    <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="WSN-vN-JFa"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -44,7 +53,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023.2" y="137.4384236453202"/>
+            <point key="canvasLocation" x="902" y="137"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NS8-0J-aVd">
+            <objects>
+                <viewController id="bWl-Fg-W1p" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yFS-xU-2Z3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Evl-gA-mk3" customClass="RoundedTextField" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="20" y="108" width="335" height="35"/>
+                                <color key="tintColor" red="0.91372549020000005" green="0.54117647059999996" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="LvA-4K-uur"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Completion date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-nu-0TO" customClass="RoundedTextField" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="20" y="153" width="335" height="35"/>
+                                <color key="tintColor" red="0.91372549020000005" green="0.54117647059999996" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="2jK-b1-4HH"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Evl-gA-mk3" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="20" id="9aL-xu-cwj"/>
+                            <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="fIR-nu-0TO" secondAttribute="trailing" constant="20" id="JUi-bT-mry"/>
+                            <constraint firstItem="fIR-nu-0TO" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="20" id="XL7-iJ-H5V"/>
+                            <constraint firstItem="Evl-gA-mk3" firstAttribute="top" secondItem="fTy-S4-3gD" secondAttribute="top" constant="20" id="kBE-CV-aaa"/>
+                            <constraint firstItem="fIR-nu-0TO" firstAttribute="top" secondItem="Evl-gA-mk3" secondAttribute="bottom" constant="10" id="lF1-Zh-ewq"/>
+                            <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="Evl-gA-mk3" secondAttribute="trailing" constant="20" id="vvH-wp-dyh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fTy-S4-3gD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wkm-Xx-Hpe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUB-dl-RfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1669.5999999999999" y="136.69950738916256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bj8-Lb-AOo">
@@ -65,4 +120,7 @@
             <point key="canvasLocation" x="80.799999999999997" y="137.4384236453202"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settingsIcon" width="28" height="28"/>
+    </resources>
 </document>

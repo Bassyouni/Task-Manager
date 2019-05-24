@@ -43,11 +43,21 @@ class TasksListHomeViewController: BaseViewController {
         tableView.contentInset = .init(top: 10, left: 0, bottom: 10, right: 0)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        navigationItem.title = "Tasks"
     }
     
     
     // MARK: - actions
+    @IBAction func addTaskButtonPressed(_ sender: Any) {
+        print("a7a")
+    }
     
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        TypePickerViewController.ShowPickerWith(title: "123", items: ["1","2","3"]) { (_, _) in
+            
+        }
+    }
     
     
     // MARK: - helpers
