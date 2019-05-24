@@ -80,6 +80,10 @@ class DatePickerViewController: UIViewController {
         dismissPicker()
     }
     
+    @IBAction func backgroundButtonPressed(_ sender: Any) {
+        dismissPicker()
+    }
+    
     // MARK: - helpers
     fileprivate func dismissPicker() {
         pickerBottomSpaceConstraint.constant = 300

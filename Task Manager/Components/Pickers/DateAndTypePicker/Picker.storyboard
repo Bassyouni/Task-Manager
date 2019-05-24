@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,11 +23,17 @@
             <objects>
                 <viewController storyboardIdentifier="TypePickerViewController" modalPresentationStyle="overCurrentContext" id="qxj-rJ-sHh" customClass="TypePickerViewController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bhi-Zo-Jym">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paT-F3-Otz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <connections>
+                                    <action selector="backgroundButtonPressed:" destination="qxj-rJ-sHh" eventType="touchUpInside" id="jfL-gL-3IE"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMK-Uo-dGx" customClass="RoundedShadowView" customModule="Task_Manager" customModuleProvider="target">
-                                <rect key="frame" x="15" y="367" width="345" height="300"/>
+                                <rect key="frame" x="15" y="478" width="345" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8O-e8-3Jn" customClass="RoundedShadowButton" customModule="Task_Manager" customModuleProvider="target">
                                         <rect key="frame" x="33" y="240" width="279" height="40"/>
@@ -63,7 +69,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Select Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE2-c8-djS">
-                                        <rect key="frame" x="128.5" y="25" width="88" height="20"/>
+                                        <rect key="frame" x="128.66666666666666" y="25" width="88" height="20"/>
                                         <fontDescription key="fontDescription" name="CircularStd-Medium" family="Circular Std" pointSize="17"/>
                                         <color key="textColor" red="0.10980392160000001" green="0.1476828754" blue="0.24316006900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -94,7 +100,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="paT-F3-Otz" firstAttribute="top" secondItem="bhi-Zo-Jym" secondAttribute="top" id="0bg-YY-jDW"/>
+                            <constraint firstAttribute="bottom" secondItem="paT-F3-Otz" secondAttribute="bottom" id="14Z-UA-BOR"/>
                             <constraint firstItem="W51-B6-PF2" firstAttribute="leading" secondItem="vMK-Uo-dGx" secondAttribute="leading" constant="-15" id="2hq-ix-I1S"/>
+                            <constraint firstItem="paT-F3-Otz" firstAttribute="trailing" secondItem="W51-B6-PF2" secondAttribute="trailing" id="IoD-HZ-MhX"/>
+                            <constraint firstItem="paT-F3-Otz" firstAttribute="leading" secondItem="W51-B6-PF2" secondAttribute="leading" id="R6D-Lr-Ncq"/>
                             <constraint firstItem="vMK-Uo-dGx" firstAttribute="bottom" secondItem="W51-B6-PF2" secondAttribute="bottom" id="hvi-dn-Ovr"/>
                             <constraint firstItem="W51-B6-PF2" firstAttribute="trailing" secondItem="vMK-Uo-dGx" secondAttribute="trailing" constant="15" id="k6D-Kx-BsI"/>
                         </constraints>
@@ -111,18 +121,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHD-Oo-YB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="447" y="-115"/>
+            <point key="canvasLocation" x="445.60000000000002" y="-116.00985221674877"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="yti-b1-0ix">
             <objects>
                 <viewController storyboardIdentifier="DatePickerViewController" modalPresentationStyle="overCurrentContext" id="yVQ-8f-YIe" customClass="DatePickerViewController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JZy-K9-Pgv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQS-fF-pZu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <connections>
+                                    <action selector="backgroundButtonPressed:" destination="yVQ-8f-YIe" eventType="touchUpInside" id="GlV-uA-l2c"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQG-Vl-SiN" customClass="RoundedShadowView" customModule="Task_Manager" customModuleProvider="target">
-                                <rect key="frame" x="15" y="367" width="345" height="300"/>
+                                <rect key="frame" x="15" y="478" width="345" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRv-hq-MvM" customClass="RoundedShadowButton" customModule="Task_Manager" customModuleProvider="target">
                                         <rect key="frame" x="33" y="240" width="279" height="40"/>
@@ -161,7 +177,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Select Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBm-I3-Yif">
-                                        <rect key="frame" x="128.5" y="25" width="88" height="20"/>
+                                        <rect key="frame" x="128.66666666666666" y="25" width="88" height="20"/>
                                         <fontDescription key="fontDescription" name="CircularStd-Medium" family="Circular Std" pointSize="17"/>
                                         <color key="textColor" red="0.10980392160000001" green="0.1476828754" blue="0.24316006900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -192,8 +208,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LQS-fF-pZu" firstAttribute="trailing" secondItem="NbT-hb-qZF" secondAttribute="trailing" id="2Xd-ny-Dj2"/>
                             <constraint firstItem="NbT-hb-qZF" firstAttribute="trailing" secondItem="CQG-Vl-SiN" secondAttribute="trailing" constant="15" id="NbG-Qd-XXw"/>
+                            <constraint firstItem="LQS-fF-pZu" firstAttribute="leading" secondItem="NbT-hb-qZF" secondAttribute="leading" id="dA7-F4-W1k"/>
                             <constraint firstItem="CQG-Vl-SiN" firstAttribute="bottom" secondItem="NbT-hb-qZF" secondAttribute="bottom" id="eXX-aS-Tbk"/>
+                            <constraint firstItem="LQS-fF-pZu" firstAttribute="top" secondItem="JZy-K9-Pgv" secondAttribute="top" id="ruy-Nh-9RM"/>
+                            <constraint firstAttribute="bottom" secondItem="LQS-fF-pZu" secondAttribute="bottom" id="tPK-xd-mkk"/>
                             <constraint firstItem="NbT-hb-qZF" firstAttribute="leading" secondItem="CQG-Vl-SiN" secondAttribute="leading" constant="-15" id="tWE-ax-PXZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NbT-hb-qZF"/>
