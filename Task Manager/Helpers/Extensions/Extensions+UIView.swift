@@ -84,3 +84,36 @@ extension UIView {
     }
     
 }
+
+extension UIView {
+    
+    func showEmptyState(message: String) {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.tag = 991
+        addSubview(view)
+        view.fillSuperview()
+        
+        let messageLabel = UILabel()
+        messageLabel.numberOfLines = 0
+        messageLabel.textColor = UIColor(red: 52/255, green: 54/255, blue: 75/255, alpha: 1)
+        messageLabel.font = .boldSystemFont(ofSize: 17)
+        messageLabel.text = message
+        messageLabel.textAlignment = .center
+        view.addSubview(messageLabel)
+        
+        messageLabel.fillSuperview(padding: .init(top: 25, left: 25, bottom: 25, right: 25))
+        
+    }
+    
+    @discardableResult
+    func removeEmptyState() -> Bool {
+        for view in subviews.reversed() {
+            if view.tag == 991 {
+                view.removeFromSuperview()
+                return true
+            }
+        }
+        return false
+    }
+}

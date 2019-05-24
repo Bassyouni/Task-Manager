@@ -25,14 +25,14 @@ class FlowManager {
         window?.makeKeyAndVisible()
     }
     
-    // MARK: - Private
-    func switchToMainModeController() {
+    private func switchToMainModeController() {
         let tasksListHomeViewController = TasksListHomeViewController.instantiateFromStoryboard()
-        setRootViewController(viewController: tasksListHomeViewController)
+        let navigationController = UINavigationController(rootViewController: tasksListHomeViewController)
+        setRootViewController(viewController: navigationController)
     }
     
     
-    func setRootViewController(viewController:UIViewController) {
+    private func setRootViewController(viewController:UIViewController) {
         self.window?.rootViewController = viewController
     }
     

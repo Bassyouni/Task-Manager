@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class RoundedShadowView: UIButton {
+class RoundedShadowView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()

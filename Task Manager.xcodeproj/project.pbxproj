@@ -23,6 +23,8 @@
 		04F3EE3F2298320C00BF0446 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE3E2298320C00BF0446 /* RoundedShadowView.swift */; };
 		04F3EE412298378A00BF0446 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE402298378A00BF0446 /* BaseViewController.swift */; };
 		04F3EE4822983F4100BF0446 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE4722983F4100BF0446 /* FlowManager.swift */; };
+		04F3EE4C22984E1400BF0446 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE4A22984E1400BF0446 /* TaskTableViewCell.swift */; };
+		04F3EE4D22984E1400BF0446 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3EE4B22984E1400BF0446 /* TaskTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		04F3EE3E2298320C00BF0446 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		04F3EE402298378A00BF0446 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		04F3EE4722983F4100BF0446 /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
+		04F3EE4A22984E1400BF0446 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		04F3EE4B22984E1400BF0446 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,7 @@
 		04F3EE4522983DC600BF0446 /* TasksListHomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				04F3EE4922984DDF00BF0446 /* TaskTableViewCell */,
 				04F3EE1022980A6600BF0446 /* TasksListHomeViewController.swift */,
 			);
 			path = TasksListHomeViewController;
@@ -215,6 +220,15 @@
 				04F3EE4722983F4100BF0446 /* FlowManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		04F3EE4922984DDF00BF0446 /* TaskTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04F3EE4A22984E1400BF0446 /* TaskTableViewCell.swift */,
+				04F3EE4B22984E1400BF0446 /* TaskTableViewCell.xib */,
+			);
+			path = TaskTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F3EE4D22984E1400BF0446 /* TaskTableViewCell.xib in Resources */,
 				04F3EE1C22980A6B00BF0446 /* LaunchScreen.storyboard in Resources */,
 				04F3EE1922980A6B00BF0446 /* Assets.xcassets in Resources */,
 				04F3EE3A2298279900BF0446 /* ColorCollectionViewCell.xib in Resources */,
@@ -298,6 +313,7 @@
 				04F3EE1722980A6600BF0446 /* Task_Manager.xcdatamodeld in Sources */,
 				04F3EE2D22981AE600BF0446 /* Extensions+UIView.swift in Sources */,
 				04F3EE3C229827C600BF0446 /* Extensions+UICollectionViewCell.swift in Sources */,
+				04F3EE4C22984E1400BF0446 /* TaskTableViewCell.swift in Sources */,
 				04F3EE4822983F4100BF0446 /* FlowManager.swift in Sources */,
 				04F3EE392298279900BF0446 /* ColorCollectionViewCell.swift in Sources */,
 				04F3EE332298247700BF0446 /* ColorPickerPopupView.swift in Sources */,
