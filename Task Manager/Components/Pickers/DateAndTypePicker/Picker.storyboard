@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paT-F3-Otz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="478"/>
                                 <connections>
                                     <action selector="backgroundButtonPressed:" destination="qxj-rJ-sHh" eventType="touchUpInside" id="jfL-gL-3IE"/>
                                 </connections>
@@ -101,12 +101,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="paT-F3-Otz" firstAttribute="top" secondItem="bhi-Zo-Jym" secondAttribute="top" id="0bg-YY-jDW"/>
-                            <constraint firstAttribute="bottom" secondItem="paT-F3-Otz" secondAttribute="bottom" id="14Z-UA-BOR"/>
                             <constraint firstItem="W51-B6-PF2" firstAttribute="leading" secondItem="vMK-Uo-dGx" secondAttribute="leading" constant="-15" id="2hq-ix-I1S"/>
                             <constraint firstItem="paT-F3-Otz" firstAttribute="trailing" secondItem="W51-B6-PF2" secondAttribute="trailing" id="IoD-HZ-MhX"/>
                             <constraint firstItem="paT-F3-Otz" firstAttribute="leading" secondItem="W51-B6-PF2" secondAttribute="leading" id="R6D-Lr-Ncq"/>
                             <constraint firstItem="vMK-Uo-dGx" firstAttribute="bottom" secondItem="W51-B6-PF2" secondAttribute="bottom" id="hvi-dn-Ovr"/>
                             <constraint firstItem="W51-B6-PF2" firstAttribute="trailing" secondItem="vMK-Uo-dGx" secondAttribute="trailing" constant="15" id="k6D-Kx-BsI"/>
+                            <constraint firstItem="vMK-Uo-dGx" firstAttribute="top" secondItem="paT-F3-Otz" secondAttribute="bottom" id="piV-Kh-OfA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W51-B6-PF2"/>
                     </view>
@@ -132,7 +132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQS-fF-pZu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="478"/>
                                 <connections>
                                     <action selector="backgroundButtonPressed:" destination="yVQ-8f-YIe" eventType="touchUpInside" id="GlV-uA-l2c"/>
                                 </connections>
@@ -213,8 +213,8 @@
                             <constraint firstItem="LQS-fF-pZu" firstAttribute="leading" secondItem="NbT-hb-qZF" secondAttribute="leading" id="dA7-F4-W1k"/>
                             <constraint firstItem="CQG-Vl-SiN" firstAttribute="bottom" secondItem="NbT-hb-qZF" secondAttribute="bottom" id="eXX-aS-Tbk"/>
                             <constraint firstItem="LQS-fF-pZu" firstAttribute="top" secondItem="JZy-K9-Pgv" secondAttribute="top" id="ruy-Nh-9RM"/>
-                            <constraint firstAttribute="bottom" secondItem="LQS-fF-pZu" secondAttribute="bottom" id="tPK-xd-mkk"/>
                             <constraint firstItem="NbT-hb-qZF" firstAttribute="leading" secondItem="CQG-Vl-SiN" secondAttribute="leading" constant="-15" id="tWE-ax-PXZ"/>
+                            <constraint firstItem="CQG-Vl-SiN" firstAttribute="top" secondItem="LQS-fF-pZu" secondAttribute="bottom" id="xqs-er-YC1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NbT-hb-qZF"/>
                     </view>
@@ -229,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGR-FA-fc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078" y="-115"/>
+            <point key="canvasLocation" x="1077.5999999999999" y="-115.27093596059113"/>
         </scene>
     </scenes>
     <resources>

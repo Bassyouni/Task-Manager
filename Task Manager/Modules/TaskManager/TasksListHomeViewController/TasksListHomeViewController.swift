@@ -50,7 +50,7 @@ class TasksListHomeViewController: BaseViewController {
     
     // MARK: - actions
     @IBAction func addTaskButtonPressed(_ sender: Any) {
-        print("a7a")
+        navigateToTaskAddUpdateViewController()
     }
     
     @IBAction func settingsButtonPressed(_ sender: Any) {
@@ -59,8 +59,17 @@ class TasksListHomeViewController: BaseViewController {
         }
     }
     
+    fileprivate func handleCellSelection(at index: Int) {
+        navigateToTaskAddUpdateViewController(withModel: 1 as AnyObject)
+    }
+    
     
     // MARK: - helpers
+    fileprivate func navigateToTaskAddUpdateViewController(withModel model: AnyObject? = nil) {
+        let viewController = TaskAddUpdateViewController.instantiateFromStoryboard()
+        viewController.taskModel = model
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
 }
 
@@ -78,6 +87,10 @@ extension TasksListHomeViewController: UITableViewDelegate, UITableViewDataSourc
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        handleCellSelection(at: indexPath.row)
     }
 }
 

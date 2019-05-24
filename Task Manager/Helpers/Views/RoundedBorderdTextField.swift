@@ -72,6 +72,11 @@ class RoundedTextField: UITextField {
             rightView = view
             rightViewMode = .always
         }
+        else if rightImageWidth != 0 {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: rightImageWidth, height: self.frame.height))
+            rightView = view
+            rightViewMode = .always
+        }
         else {
             rightView = nil
         }

@@ -41,6 +41,14 @@ class RoundedShadowButton: UIButton {
         }
     }
     
+    @IBInspectable var shadowRadius: CGFloat = 5.0
+        {
+        didSet
+        {
+            setupView()
+        }
+    }
+    
     override func prepareForInterfaceBuilder() {
         setupView()
     }
@@ -57,7 +65,7 @@ class RoundedShadowButton: UIButton {
         
         layer.shadowColor =  UIColor.lightGray.cgColor
         layer.shadowOpacity = hasShadow ? 0.8 : 0.0
-        layer.shadowRadius = hasShadow ? 5.0 : 0
+        layer.shadowRadius = hasShadow ? shadowRadius : 0
         layer.shadowOffset = CGSize(width: hasShadow ? 1.0 : 0.0, height: hasShadow ? 1.0 : -3.0)
     }
     

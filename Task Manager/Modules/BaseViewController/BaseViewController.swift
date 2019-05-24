@@ -30,4 +30,17 @@ class BaseViewController: UIViewController {
             colorPickerView.presentPopupView()
         }
     }
+    
+    func showError(message: String, complition: (() -> ())? = nil) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+       
+        let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
+            if let complition = complition {
+                complition()
+            }
+        }
+        
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }

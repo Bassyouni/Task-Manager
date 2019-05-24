@@ -30,6 +30,7 @@
 		04F3EE5622988D7700BF0446 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5322988D7700BF0446 /* DatePickerViewController.swift */; };
 		04F3EE5722988D7700BF0446 /* Picker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3EE5422988D7700BF0446 /* Picker.storyboard */; };
 		04F3EE5922988E4D00BF0446 /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5822988E4D00BF0446 /* RoundedShadowButton.swift */; };
+		04F3EE5E22989C2700BF0446 /* TaskAddUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5D22989C2700BF0446 /* TaskAddUpdateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		04F3EE5322988D7700BF0446 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		04F3EE5422988D7700BF0446 /* Picker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Picker.storyboard; sourceTree = "<group>"; };
 		04F3EE5822988E4D00BF0446 /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
+		04F3EE5D22989C2700BF0446 /* TaskAddUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddUpdateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 		04F3EE4322983D0D00BF0446 /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				04F3EE5A22989BE900BF0446 /* TaskAddUpdateViewController */,
 				04F3EE4522983DC600BF0446 /* TasksListHomeViewController */,
 				04F3EE1222980A6600BF0446 /* TaskManager.storyboard */,
 			);
@@ -260,6 +263,14 @@
 				04F3EE5222988D7600BF0446 /* TypePickerViewController.swift */,
 			);
 			path = DateAndTypePicker;
+			sourceTree = "<group>";
+		};
+		04F3EE5A22989BE900BF0446 /* TaskAddUpdateViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04F3EE5D22989C2700BF0446 /* TaskAddUpdateViewController.swift */,
+			);
+			path = TaskAddUpdateViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +355,7 @@
 				04F3EE2B229813FD00BF0446 /* SystemColorsEnum.swift in Sources */,
 				04F3EE0F22980A6600BF0446 /* AppDelegate.swift in Sources */,
 				04F3EE1722980A6600BF0446 /* Task_Manager.xcdatamodeld in Sources */,
+				04F3EE5E22989C2700BF0446 /* TaskAddUpdateViewController.swift in Sources */,
 				04F3EE5922988E4D00BF0446 /* RoundedShadowButton.swift in Sources */,
 				04F3EE4F2298890900BF0446 /* RoundedBorderdTextField.swift in Sources */,
 				04F3EE2D22981AE600BF0446 /* Extensions+UIView.swift in Sources */,

@@ -12,7 +12,7 @@ import UIKit
     func didSelectDate(date: Date)
 }
 
-class DatePickerViewController: UIViewController {
+class DatePickerViewController: BaseViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var okBtn: RoundedShadowView!
@@ -67,6 +67,11 @@ class DatePickerViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func okBtnPressed(_ sender: Any) {
+        
+        if datePickerView.date < Date() {
+            showError(message: "You cannot select a complition date in the past")
+            return
+        }
         
         if let complitionClosure = datePickerComplition {
             complitionClosure(datePickerView.date)

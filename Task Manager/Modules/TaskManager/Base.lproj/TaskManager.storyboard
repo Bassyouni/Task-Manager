@@ -9,17 +9,22 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tasks List Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TasksListHomeViewController" id="BYZ-38-t0r" customClass="TasksListHomeViewController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z9x-rl-UNz">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -37,7 +42,6 @@
                             <barButtonItem systemItem="add" id="WZ0-Xt-lRy">
                                 <connections>
                                     <action selector="addTaskButtonPressed:" destination="BYZ-38-t0r" id="yCa-n1-Bxi"/>
-                                    <segue destination="bWl-Fg-W1p" kind="push" id="a0u-Z8-kvc"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="settingsIcon" id="fJY-kp-YFw">
@@ -47,6 +51,7 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="Z9x-rl-UNz" id="nw0-Zu-ADm"/>
                     </connections>
@@ -55,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="902" y="137"/>
         </scene>
-        <!--View Controller-->
+        <!--Task Add Update View Controller-->
         <scene sceneID="NS8-0J-aVd">
             <objects>
-                <viewController id="bWl-Fg-W1p" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskAddUpdateViewController" id="bWl-Fg-W1p" customClass="TaskAddUpdateViewController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yFS-xU-2Z3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,44 +88,119 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfw-St-qQJ" userLabel="selectDateButton">
+                                <rect key="frame" x="20" y="153" width="335" height="35"/>
+                                <connections>
+                                    <action selector="selectDateButtonPressed:" destination="bWl-Fg-W1p" eventType="touchUpInside" id="HFO-Q5-euq"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rrv-HK-ViH" customClass="RoundedTextField" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="20" y="203" width="290" height="35"/>
+                                <color key="tintColor" red="0.91372549020000005" green="0.54117647059999996" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Hx5-IW-QSq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightImageWidth">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63p-gt-0Pq">
+                                <rect key="frame" x="270" y="203" width="40" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="m6m-vx-ycP"/>
+                                </constraints>
+                                <state key="normal" image="arrowDown"/>
+                                <connections>
+                                    <action selector="selectCategoryButtonPressed:" destination="bWl-Fg-W1p" eventType="touchUpInside" id="H1Z-B0-sbG"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bev-us-UBn" customClass="RoundedShadowView" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="320" y="200.66666666666666" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="567-84-jjJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="EDM-K3-Kol"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPillShaped" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS3-37-zAM" customClass="RoundedShadowButton" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="25" y="265.66666666666669" width="325" height="50"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.77647058820000003" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pRf-QB-XIn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPillShaped" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="bev-us-UBn" firstAttribute="centerY" secondItem="Rrv-HK-ViH" secondAttribute="centerY" id="2sx-GZ-i8j"/>
+                            <constraint firstItem="cS3-37-zAM" firstAttribute="top" secondItem="bev-us-UBn" secondAttribute="bottom" constant="25" id="3Kh-d0-48R"/>
                             <constraint firstItem="Evl-gA-mk3" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="20" id="9aL-xu-cwj"/>
+                            <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="cS3-37-zAM" secondAttribute="trailing" constant="25" id="DKq-73-a2f"/>
                             <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="fIR-nu-0TO" secondAttribute="trailing" constant="20" id="JUi-bT-mry"/>
+                            <constraint firstItem="63p-gt-0Pq" firstAttribute="top" secondItem="Rrv-HK-ViH" secondAttribute="top" id="Ljb-WR-z3n"/>
+                            <constraint firstItem="Dfw-St-qQJ" firstAttribute="bottom" secondItem="fIR-nu-0TO" secondAttribute="bottom" id="Lzf-Lb-3bE"/>
+                            <constraint firstItem="63p-gt-0Pq" firstAttribute="trailing" secondItem="Rrv-HK-ViH" secondAttribute="trailing" id="P6J-Ns-CZn"/>
+                            <constraint firstItem="Dfw-St-qQJ" firstAttribute="top" secondItem="fIR-nu-0TO" secondAttribute="top" id="Vhz-FF-TRx"/>
                             <constraint firstItem="fIR-nu-0TO" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="20" id="XL7-iJ-H5V"/>
+                            <constraint firstItem="Dfw-St-qQJ" firstAttribute="trailing" secondItem="fIR-nu-0TO" secondAttribute="trailing" id="YYN-gk-dVE"/>
+                            <constraint firstItem="cS3-37-zAM" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="25" id="ZZu-11-46F"/>
+                            <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="bev-us-UBn" secondAttribute="trailing" constant="15" id="gLu-ZL-TIH"/>
+                            <constraint firstItem="Dfw-St-qQJ" firstAttribute="leading" secondItem="fIR-nu-0TO" secondAttribute="leading" id="h6b-4S-EWs"/>
                             <constraint firstItem="Evl-gA-mk3" firstAttribute="top" secondItem="fTy-S4-3gD" secondAttribute="top" constant="20" id="kBE-CV-aaa"/>
                             <constraint firstItem="fIR-nu-0TO" firstAttribute="top" secondItem="Evl-gA-mk3" secondAttribute="bottom" constant="10" id="lF1-Zh-ewq"/>
+                            <constraint firstItem="Rrv-HK-ViH" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="20" id="lNi-PX-oYs"/>
+                            <constraint firstItem="Rrv-HK-ViH" firstAttribute="top" secondItem="fIR-nu-0TO" secondAttribute="bottom" constant="15" id="rrO-tJ-sLF"/>
+                            <constraint firstItem="63p-gt-0Pq" firstAttribute="bottom" secondItem="Rrv-HK-ViH" secondAttribute="bottom" id="vhS-G2-e2R"/>
                             <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="Evl-gA-mk3" secondAttribute="trailing" constant="20" id="vvH-wp-dyh"/>
+                            <constraint firstItem="bev-us-UBn" firstAttribute="leading" secondItem="Rrv-HK-ViH" secondAttribute="trailing" constant="10" id="y1n-Ge-Khx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fTy-S4-3gD"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wkm-Xx-Hpe"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="categoryColorView" destination="bev-us-UBn" id="W8M-wb-fHL"/>
+                        <outlet property="categoryDropDownButton" destination="63p-gt-0Pq" id="oqd-Sw-9xg"/>
+                        <outlet property="categoryTextField" destination="Rrv-HK-ViH" id="rob-BH-LH4"/>
+                        <outlet property="complitionDateButton" destination="Dfw-St-qQJ" id="K5j-3P-8yj"/>
+                        <outlet property="complitionDateTextField" destination="fIR-nu-0TO" id="bAh-Db-NSQ"/>
+                        <outlet property="saveEditButton" destination="cS3-37-zAM" id="PYQ-sb-c9Z"/>
+                        <outlet property="taskNameTextField" destination="Evl-gA-mk3" id="q6n-GZ-Ete"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUB-dl-RfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669.5999999999999" y="136.69950738916256"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Bj8-Lb-AOo">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GDH-GB-bAG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LPa-9h-Ye1">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RuJ-4D-Sdh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3R7-zY-upf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="80.799999999999997" y="137.4384236453202"/>
+            <point key="canvasLocation" x="1566" y="137"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrowDown" width="12" height="8"/>
         <image name="settingsIcon" width="28" height="28"/>
     </resources>
 </document>
