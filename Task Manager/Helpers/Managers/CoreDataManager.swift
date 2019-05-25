@@ -47,4 +47,19 @@ class CoreDataManager {
         }
     }
     
+    func deleteAllData(_ entity:String) {
+        // Create Fetch Request
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        
+        // Create Batch Delete Request
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.execute(batchDeleteRequest)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }

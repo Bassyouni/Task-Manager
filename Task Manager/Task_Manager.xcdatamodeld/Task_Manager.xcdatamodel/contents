@@ -3,12 +3,12 @@
     <entity name="CategoryModel" representedClassName="CategoryModel" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="task" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="TaskModel" inverseName="category" inverseEntity="TaskModel" syncable="YES"/>
+        <relationship name="task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TaskModel" inverseName="category" inverseEntity="TaskModel" syncable="YES"/>
     </entity>
     <entity name="TaskModel" representedClassName="TaskModel" syncable="YES" codeGenerationType="class">
         <attribute name="completionDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryModel" inverseName="task" inverseEntity="CategoryModel" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryModel" inverseName="task" inverseEntity="CategoryModel" syncable="YES"/>
     </entity>
     <elements>
         <element name="CategoryModel" positionX="-63" positionY="-18" width="128" height="88"/>

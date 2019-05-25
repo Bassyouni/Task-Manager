@@ -32,8 +32,8 @@ class TasksListHomeViewController: BaseViewController {
         configureUI()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configueData()
     }
     
@@ -58,9 +58,10 @@ class TasksListHomeViewController: BaseViewController {
         if tasksArray.count > 0 {
             tableView.reloadData()
             tableView.isHidden = false
+            self.view.removeEmptyState()
         } else {
             tableView.isHidden = true
-            self.view.showEmptyState(message: "Add A Task\nToShow Here")
+            self.view.showEmptyState(message: "Add A Task\nTo Show Here")
         }
     }
     
@@ -77,12 +78,12 @@ class TasksListHomeViewController: BaseViewController {
     }
     
     fileprivate func handleCellSelection(at index: Int) {
-        navigateToTaskAddUpdateViewController(withModel: 1 as AnyObject)
+        navigateToTaskAddUpdateViewController(withModel: tasksArray[index])
     }
     
     
     // MARK: - helpers
-    fileprivate func navigateToTaskAddUpdateViewController(withModel model: AnyObject? = nil) {
+    fileprivate func navigateToTaskAddUpdateViewController(withModel model: TaskModel? = nil) {
         let viewController = TaskAddUpdateViewController.instantiateFromStoryboard()
         viewController.taskModel = model
         self.navigationController?.pushViewController(viewController, animated: true)
