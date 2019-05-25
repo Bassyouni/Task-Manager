@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="MLW-XA-Ljs">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="jhY-WD-VSD" customClass="SettingsViewController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9sU-ZV-Nf0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable All Local Notifications" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89g-Jw-AYB">
+                                <rect key="frame" x="15" y="109" width="227" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.21176470589999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pEG-zt-Hep">
+                                <rect key="frame" x="306" y="105.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="enableNotificationsValueChanged:" destination="jhY-WD-VSD" eventType="valueChanged" id="BFR-GU-vdI"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nsc-e0-dRb" customClass="RoundedTextField" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="15" y="168.5" width="290" height="35"/>
+                                <color key="tintColor" red="0.91372549020000005" green="0.54117647059999996" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="A3F-Rd-4UU"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightImageWidth">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-Px-nhU" customClass="RoundedShadowView" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="315" y="166" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="F7Q-On-3Er"/>
+                                    <constraint firstAttribute="height" constant="40" id="eqC-PN-bcA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPillShaped" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6C-dr-Zb9">
+                                <rect key="frame" x="10" y="152.5" width="355" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.68043664383561642" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="9hy-LZ-Fy5"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CB-qz-E7a" customClass="RoundedShadowButton" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="107.5" y="233.5" width="160" height="50"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.77647058820000003" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0LG-Va-zwb"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="faZ-vQ-qlX"/>
+                                    <constraint firstAttribute="width" constant="160" id="h8a-9A-ojA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPillShaped" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addCategoryButtonPressed:" destination="jhY-WD-VSD" eventType="touchUpInside" id="EiJ-ff-H8s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pEG-zt-Hep" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="89g-Jw-AYB" secondAttribute="trailing" constant="10" id="0C9-9t-AvS"/>
+                            <constraint firstItem="Nsc-e0-dRb" firstAttribute="top" secondItem="g6C-dr-Zb9" secondAttribute="bottom" constant="15" id="638-MK-LPC"/>
+                            <constraint firstItem="g6C-dr-Zb9" firstAttribute="leading" secondItem="EmX-Aa-cwZ" secondAttribute="leading" constant="10" id="6nD-Xs-rfU"/>
+                            <constraint firstItem="EmX-Aa-cwZ" firstAttribute="trailing" secondItem="pEG-zt-Hep" secondAttribute="trailing" constant="20" id="8na-BK-dzB"/>
+                            <constraint firstItem="89g-Jw-AYB" firstAttribute="leading" secondItem="EmX-Aa-cwZ" secondAttribute="leading" constant="15" id="BFT-45-gdO"/>
+                            <constraint firstItem="6iv-Px-nhU" firstAttribute="leading" secondItem="Nsc-e0-dRb" secondAttribute="trailing" constant="10" id="ErZ-I7-Rjb"/>
+                            <constraint firstItem="g6C-dr-Zb9" firstAttribute="top" secondItem="89g-Jw-AYB" secondAttribute="bottom" constant="20" id="FzG-mw-4vA"/>
+                            <constraint firstItem="pEG-zt-Hep" firstAttribute="centerY" secondItem="89g-Jw-AYB" secondAttribute="centerY" id="Lge-aI-7pQ"/>
+                            <constraint firstItem="g6C-dr-Zb9" firstAttribute="trailing" secondItem="EmX-Aa-cwZ" secondAttribute="trailing" constant="-10" id="XBU-0P-YPz"/>
+                            <constraint firstItem="EmX-Aa-cwZ" firstAttribute="trailing" secondItem="6iv-Px-nhU" secondAttribute="trailing" constant="20" id="ciM-1w-ggH"/>
+                            <constraint firstItem="6iv-Px-nhU" firstAttribute="centerY" secondItem="Nsc-e0-dRb" secondAttribute="centerY" id="du0-QV-Pwe"/>
+                            <constraint firstItem="89g-Jw-AYB" firstAttribute="top" secondItem="EmX-Aa-cwZ" secondAttribute="top" constant="45" id="kWK-3c-WuT"/>
+                            <constraint firstItem="8CB-qz-E7a" firstAttribute="top" secondItem="Nsc-e0-dRb" secondAttribute="bottom" constant="30" id="or5-NQ-eo0"/>
+                            <constraint firstItem="8CB-qz-E7a" firstAttribute="centerX" secondItem="9sU-ZV-Nf0" secondAttribute="centerX" id="pH4-pW-To7"/>
+                            <constraint firstItem="Nsc-e0-dRb" firstAttribute="leading" secondItem="EmX-Aa-cwZ" secondAttribute="leading" constant="15" id="tgw-4g-XuY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EmX-Aa-cwZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8II-R5-7py"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="addCategoryButton" destination="8CB-qz-E7a" id="fcd-2Z-aFf"/>
+                        <outlet property="categoryColorView" destination="6iv-Px-nhU" id="4DY-Bq-PCC"/>
+                        <outlet property="categoryTextField" destination="Nsc-e0-dRb" id="PXf-G7-7UG"/>
+                        <outlet property="enableNotifcationSwitch" destination="pEG-zt-Hep" id="Vox-Fq-2wW"/>
+                        <outlet property="enableNotificationsTitleLabel" destination="89g-Jw-AYB" id="m0Q-Mf-4wq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j7M-zL-Fnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256.8000000000002" y="136.28185907046478"/>
+        </scene>
+    </scenes>
+</document>

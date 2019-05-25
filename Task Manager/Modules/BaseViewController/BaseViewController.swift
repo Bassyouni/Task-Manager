@@ -32,8 +32,16 @@ class BaseViewController: UIViewController {
     }
     
     func showError(message: String, complition: (() -> ())? = nil) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-       
+        showAlert(withTitle: "Error", message: message, complition: complition)
+    }
+    
+    func showSuccessMessage(message: String, complition: (() -> ())? = nil) {
+        showAlert(withTitle: "Success", message: message,complition: complition)
+    }
+    
+    fileprivate func showAlert(withTitle title: String, message: String, complition: (() -> ())? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
         let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
             if let complition = complition {
                 complition()

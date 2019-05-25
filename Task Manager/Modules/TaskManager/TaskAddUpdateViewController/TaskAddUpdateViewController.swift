@@ -191,7 +191,7 @@ class TaskAddUpdateViewController: BaseViewController {
         {
             if category.name?.lowercased() == selectedCategoryName?.lowercased() && category.color != selectedCategoryColor.rawValue
             {
-                showError(message: "A category with this name exist\nPlease change name or select a category from the list")
+                showError(message: "A category with this name exist\nPlease change category name or select a category from the list")
                 return false
             }
             else if category.name?.lowercased() == selectedCategoryName?.lowercased() && category.color == selectedCategoryColor.rawValue {
@@ -223,7 +223,6 @@ class TaskAddUpdateViewController: BaseViewController {
 extension TaskAddUpdateViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
-        
         return true
     }
 }

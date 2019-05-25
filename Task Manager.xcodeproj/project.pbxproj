@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0464D14A2299132500C34CC3 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0464D1492299132500C34CC3 /* Settings.storyboard */; };
+		0464D14C2299134100C34CC3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464D14B2299134100C34CC3 /* SettingsViewController.swift */; };
 		04F3EE0F22980A6600BF0446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE0E22980A6600BF0446 /* AppDelegate.swift */; };
 		04F3EE1122980A6600BF0446 /* TasksListHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE1022980A6600BF0446 /* TasksListHomeViewController.swift */; };
 		04F3EE1422980A6600BF0446 /* TaskManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3EE1222980A6600BF0446 /* TaskManager.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0464D1492299132500C34CC3 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		0464D14B2299134100C34CC3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		04F3EE0B22980A6600BF0446 /* Task Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3EE0E22980A6600BF0446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3EE1022980A6600BF0446 /* TasksListHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListHomeViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0464D1482299131500C34CC3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0464D1492299132500C34CC3 /* Settings.storyboard */,
+				0464D14B2299134100C34CC3 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		04F3EE0222980A6500BF0446 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,7 @@
 		04F3EE2322980E6A00BF0446 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0464D1482299131500C34CC3 /* Settings */,
 				04F3EE4322983D0D00BF0446 /* TaskManager */,
 				04F3EE4222983B2F00BF0446 /* BaseViewController */,
 			);
@@ -337,6 +351,7 @@
 				04F3EE4D22984E1400BF0446 /* TaskTableViewCell.xib in Resources */,
 				04F3EE1C22980A6B00BF0446 /* LaunchScreen.storyboard in Resources */,
 				04F3EE1922980A6B00BF0446 /* Assets.xcassets in Resources */,
+				0464D14A2299132500C34CC3 /* Settings.storyboard in Resources */,
 				04F3EE3A2298279900BF0446 /* ColorCollectionViewCell.xib in Resources */,
 				04F3EE352298248900BF0446 /* ColorPickerPopupView.xib in Resources */,
 				04F3EE1422980A6600BF0446 /* TaskManager.storyboard in Resources */,
@@ -356,6 +371,7 @@
 				04F3EE5522988D7700BF0446 /* TypePickerViewController.swift in Sources */,
 				04F3EE3F2298320C00BF0446 /* RoundedShadowView.swift in Sources */,
 				04F3EE2B229813FD00BF0446 /* SystemColorsEnum.swift in Sources */,
+				0464D14C2299134100C34CC3 /* SettingsViewController.swift in Sources */,
 				04F3EE0F22980A6600BF0446 /* AppDelegate.swift in Sources */,
 				04F3EE602298BCDD00BF0446 /* CoreDataManager.swift in Sources */,
 				04F3EE1722980A6600BF0446 /* Task_Manager.xcdatamodeld in Sources */,

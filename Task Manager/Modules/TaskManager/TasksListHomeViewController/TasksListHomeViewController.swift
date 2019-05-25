@@ -76,9 +76,8 @@ class TasksListHomeViewController: BaseViewController {
     }
     
     @IBAction func settingsButtonPressed(_ sender: Any) {
-        TypePickerViewController.ShowPickerWith(title: "123", items: ["1","2","3"]) { (_, _) in
-            
-        }
+        let viewController = SettingsViewController.instantiateFromStoryboard()
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     fileprivate func handleCellSelection(at indexPath: IndexPath) {
@@ -153,7 +152,8 @@ extension TasksListHomeViewController: UITableViewDelegate, UITableViewDataSourc
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, indexPath) in
             self.removeTask(atIndexPath: indexPath)
             self.configueData()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            tableView.deleteRows(at: [indexPath], with: (self.groupedTasks.count <= 0) ? .none : .automatic)
         }
         
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
