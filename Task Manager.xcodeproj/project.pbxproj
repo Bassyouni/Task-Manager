@@ -31,6 +31,7 @@
 		04F3EE5722988D7700BF0446 /* Picker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3EE5422988D7700BF0446 /* Picker.storyboard */; };
 		04F3EE5922988E4D00BF0446 /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5822988E4D00BF0446 /* RoundedShadowButton.swift */; };
 		04F3EE5E22989C2700BF0446 /* TaskAddUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5D22989C2700BF0446 /* TaskAddUpdateViewController.swift */; };
+		04F3EE602298BCDD00BF0446 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3EE5F2298BCDD00BF0446 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		04F3EE5422988D7700BF0446 /* Picker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Picker.storyboard; sourceTree = "<group>"; };
 		04F3EE5822988E4D00BF0446 /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
 		04F3EE5D22989C2700BF0446 /* TaskAddUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddUpdateViewController.swift; sourceTree = "<group>"; };
+		04F3EE5F2298BCDD00BF0446 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				04F3EE4722983F4100BF0446 /* FlowManager.swift */,
+				04F3EE5F2298BCDD00BF0446 /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				04F3EE3F2298320C00BF0446 /* RoundedShadowView.swift in Sources */,
 				04F3EE2B229813FD00BF0446 /* SystemColorsEnum.swift in Sources */,
 				04F3EE0F22980A6600BF0446 /* AppDelegate.swift in Sources */,
+				04F3EE602298BCDD00BF0446 /* CoreDataManager.swift in Sources */,
 				04F3EE1722980A6600BF0446 /* Task_Manager.xcdatamodeld in Sources */,
 				04F3EE5E22989C2700BF0446 /* TaskAddUpdateViewController.swift in Sources */,
 				04F3EE5922988E4D00BF0446 /* RoundedShadowButton.swift in Sources */,

@@ -175,6 +175,7 @@
             <viewLayoutGuide key="safeArea" id="ncr-g4-Oes"/>
             <connections>
                 <outlet property="categoryColorView" destination="pX9-3e-14p" id="cPj-zd-Syc"/>
+                <outlet property="categoryContainerView" destination="nEo-iR-uTR" id="GhO-Fb-nt8"/>
                 <outlet property="completionDateLabel" destination="TGB-ZW-qWJ" id="hhh-wN-Lcf"/>
                 <outlet property="completionDateValueLabel" destination="02w-Y7-jEW" id="21b-N8-85E"/>
                 <outlet property="complitionDateContainerView" destination="HaO-EI-jed" id="9yL-6J-vCE"/>
