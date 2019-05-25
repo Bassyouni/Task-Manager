@@ -68,10 +68,10 @@ class DatePickerViewController: BaseViewController {
     // MARK: - IBActions
     @IBAction func okBtnPressed(_ sender: Any) {
         
-        if datePickerView.date < Date() {
-            showError(message: "You cannot select a complition date in the past")
-            return
-        }
+//        if datePickerView.date < Date() {
+//            showError(message: "You cannot select a complition date in the past")
+//            return
+//        }
         
         if let complitionClosure = datePickerComplition {
             complitionClosure(datePickerView.date)
