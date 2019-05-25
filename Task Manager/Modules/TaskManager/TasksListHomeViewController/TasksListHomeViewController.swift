@@ -35,6 +35,7 @@ class TasksListHomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configueData()
+        tableView.reloadData()
     }
     
     
@@ -56,7 +57,6 @@ class TasksListHomeViewController: BaseViewController {
         tasksArray = CoreDataManager.shared.fetchModels(entityType: TaskModel.self)
         
         if tasksArray.count > 0 {
-            tableView.reloadData()
             tableView.isHidden = false
             self.view.removeEmptyState()
         } else {
@@ -89,6 +89,12 @@ class TasksListHomeViewController: BaseViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    fileprivate func removeTask(atIndexPath indexPath: IndexPath) {
+        CoreDataManager.shared.deleteObject(tasksArray[indexPath.row]) { (_) in
+            
+        }
+    }
+    
 }
 
 // MARK: - table
@@ -109,6 +115,26 @@ extension TasksListHomeViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         handleCellSelection(at: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, indexPath) in
+            self.removeTask(atIndexPath: indexPath)
+            self.configueData()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        
+        return [deleteAction]
     }
 }
 
