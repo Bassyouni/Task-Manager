@@ -38,13 +38,15 @@ class TaskTableViewCell: UITableViewCell {
     func bindUI(taskModel: TaskModel, isCompleted: Bool) {
         titleValueLabel.text = taskModel.title
         
-        if let completionDate = taskModel.completionDate {
+        if let completionDate = taskModel.completionDate
+        {
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
             completionDateValueLabel.text = formatter.string(from: completionDate)
             complitionDateContainerView.isHidden = false
         }
-        else {
+        else
+        {
             complitionDateContainerView.isHidden = true
         }
         

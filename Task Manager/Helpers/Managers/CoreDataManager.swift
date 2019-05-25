@@ -48,6 +48,7 @@ class CoreDataManager {
     }
     
     func deleteAllData(_ entity:String) {
+        
         // Create Fetch Request
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         
