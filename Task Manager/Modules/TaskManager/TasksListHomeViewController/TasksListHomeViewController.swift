@@ -23,13 +23,18 @@ class TasksListHomeViewController: BaseViewController {
     
     
     // MARK: - variables
-    
+    var tasksArray = [TaskModel]()
     
     
     // MARK: - view lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configueData()
     }
     
     
@@ -47,6 +52,19 @@ class TasksListHomeViewController: BaseViewController {
         navigationItem.title = "Tasks"
     }
     
+    fileprivate func configueData() {
+        tasksArray = CoreDataManager.shared.fetchModels(entityType: TaskModel.self)
+        
+        if tasksArray.count > 0 {
+            tableView.reloadData()
+            tableView.isHidden = false
+            self.view.removeEmptyState()
+        } else {
+            tableView.isHidden = true
+            self.view.showEmptyState(message: "Add A Task\nTo Show Here")
+        }
+    }
+    
     
     // MARK: - actions
     @IBAction func addTaskButtonPressed(_ sender: Any) {
@@ -60,12 +78,12 @@ class TasksListHomeViewController: BaseViewController {
     }
     
     fileprivate func handleCellSelection(at index: Int) {
-        navigateToTaskAddUpdateViewController(withModel: 1 as AnyObject)
+        navigateToTaskAddUpdateViewController(withModel: tasksArray[index])
     }
     
     
     // MARK: - helpers
-    fileprivate func navigateToTaskAddUpdateViewController(withModel model: AnyObject? = nil) {
+    fileprivate func navigateToTaskAddUpdateViewController(withModel model: TaskModel? = nil) {
         let viewController = TaskAddUpdateViewController.instantiateFromStoryboard()
         viewController.taskModel = model
         self.navigationController?.pushViewController(viewController, animated: true)
@@ -77,13 +95,13 @@ class TasksListHomeViewController: BaseViewController {
 extension TasksListHomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tasksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.cellIdentifier, for: indexPath) as? TaskTableViewCell
         {
-            cell.taskModel = 5 as AnyObject
+            cell.taskModel = tasksArray[indexPath.row]
             return cell
         }
         return UITableViewCell()

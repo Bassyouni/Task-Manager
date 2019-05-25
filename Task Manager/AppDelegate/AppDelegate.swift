@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    
+//            CoreDataManager.shared.deleteAllData(String(describing: TaskModel.self))
+//        CoreDataManager.shared.deleteAllData(String(describing: CategoryModel.self))
         
         FlowManager.shared.activateMainFlow()
         FlowManager.shared.makeWindowKeyAndVisible()
