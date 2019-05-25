@@ -137,41 +137,70 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS3-37-zAM" customClass="RoundedShadowButton" customModule="Task_Manager" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sP0-OR-qUs">
                                 <rect key="frame" x="25" y="265.66666666666669" width="325" height="50"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.77647058820000003" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS3-37-zAM" customClass="RoundedShadowButton" customModule="Task_Manager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="50"/>
+                                        <color key="backgroundColor" red="0.40000000000000002" green="0.77647058820000003" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="pRf-QB-XIn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isPillShaped" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyB-ib-OLB" customClass="RoundedShadowButton" customModule="Task_Manager" customModuleProvider="target">
+                                        <rect key="frame" x="167.66666666666663" y="0.0" width="157.33333333333337" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Zyj-1e-1wW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isPillShaped" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deleteButtonPressed:" destination="bWl-Fg-W1p" eventType="touchUpInside" id="L0X-QG-NQ8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="pRf-QB-XIn"/>
+                                    <constraint firstAttribute="height" constant="50" id="kw2-Ly-uRP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPillShaped" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bev-us-UBn" firstAttribute="centerY" secondItem="Rrv-HK-ViH" secondAttribute="centerY" id="2sx-GZ-i8j"/>
-                            <constraint firstItem="cS3-37-zAM" firstAttribute="top" secondItem="bev-us-UBn" secondAttribute="bottom" constant="25" id="3Kh-d0-48R"/>
                             <constraint firstItem="Evl-gA-mk3" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="20" id="9aL-xu-cwj"/>
-                            <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="cS3-37-zAM" secondAttribute="trailing" constant="25" id="DKq-73-a2f"/>
+                            <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="sP0-OR-qUs" secondAttribute="trailing" constant="25" id="HCE-BD-CV7"/>
                             <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="fIR-nu-0TO" secondAttribute="trailing" constant="20" id="JUi-bT-mry"/>
+                            <constraint firstItem="sP0-OR-qUs" firstAttribute="top" secondItem="bev-us-UBn" secondAttribute="bottom" constant="25" id="LBf-Uo-fsi"/>
                             <constraint firstItem="63p-gt-0Pq" firstAttribute="top" secondItem="Rrv-HK-ViH" secondAttribute="top" id="Ljb-WR-z3n"/>
                             <constraint firstItem="Dfw-St-qQJ" firstAttribute="bottom" secondItem="fIR-nu-0TO" secondAttribute="bottom" id="Lzf-Lb-3bE"/>
                             <constraint firstItem="63p-gt-0Pq" firstAttribute="trailing" secondItem="Rrv-HK-ViH" secondAttribute="trailing" id="P6J-Ns-CZn"/>
                             <constraint firstItem="Dfw-St-qQJ" firstAttribute="top" secondItem="fIR-nu-0TO" secondAttribute="top" id="Vhz-FF-TRx"/>
                             <constraint firstItem="fIR-nu-0TO" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="20" id="XL7-iJ-H5V"/>
                             <constraint firstItem="Dfw-St-qQJ" firstAttribute="trailing" secondItem="fIR-nu-0TO" secondAttribute="trailing" id="YYN-gk-dVE"/>
-                            <constraint firstItem="cS3-37-zAM" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="25" id="ZZu-11-46F"/>
                             <constraint firstItem="fTy-S4-3gD" firstAttribute="trailing" secondItem="bev-us-UBn" secondAttribute="trailing" constant="15" id="gLu-ZL-TIH"/>
                             <constraint firstItem="Dfw-St-qQJ" firstAttribute="leading" secondItem="fIR-nu-0TO" secondAttribute="leading" id="h6b-4S-EWs"/>
+                            <constraint firstItem="sP0-OR-qUs" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="25" id="ikQ-6O-BKd"/>
                             <constraint firstItem="Evl-gA-mk3" firstAttribute="top" secondItem="fTy-S4-3gD" secondAttribute="top" constant="20" id="kBE-CV-aaa"/>
                             <constraint firstItem="fIR-nu-0TO" firstAttribute="top" secondItem="Evl-gA-mk3" secondAttribute="bottom" constant="10" id="lF1-Zh-ewq"/>
                             <constraint firstItem="Rrv-HK-ViH" firstAttribute="leading" secondItem="fTy-S4-3gD" secondAttribute="leading" constant="20" id="lNi-PX-oYs"/>
@@ -190,6 +219,7 @@
                         <outlet property="categoryTextField" destination="Rrv-HK-ViH" id="rob-BH-LH4"/>
                         <outlet property="complitionDateButton" destination="Dfw-St-qQJ" id="K5j-3P-8yj"/>
                         <outlet property="complitionDateTextField" destination="fIR-nu-0TO" id="bAh-Db-NSQ"/>
+                        <outlet property="deleteButton" destination="KyB-ib-OLB" id="zPQ-SF-RWm"/>
                         <outlet property="saveEditButton" destination="cS3-37-zAM" id="PYQ-sb-c9Z"/>
                         <outlet property="taskNameTextField" destination="Evl-gA-mk3" id="q6n-GZ-Ete"/>
                     </connections>

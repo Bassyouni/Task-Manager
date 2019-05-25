@@ -18,6 +18,7 @@ class TaskAddUpdateViewController: BaseViewController {
     @IBOutlet weak var categoryDropDownButton: UIButton!
     @IBOutlet weak var categoryColorView: RoundedShadowView!
     @IBOutlet weak var saveEditButton: RoundedShadowButton!
+    @IBOutlet weak var deleteButton: RoundedShadowButton!
     
     
     // MARK: - variables
@@ -44,10 +45,12 @@ class TaskAddUpdateViewController: BaseViewController {
         if taskModel != nil {
             navigationItem.title = "Edit Task"
             saveEditButton.setTitle("Save", for: .normal)
+            deleteButton.isHidden = false
         }
         else {
             navigationItem.title = "Add a Task"
             saveEditButton.setTitle("Create", for: .normal)
+            deleteButton.isHidden = true
         }
         
         categoryColorView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(categoryColorPressed)))
@@ -84,6 +87,9 @@ class TaskAddUpdateViewController: BaseViewController {
         }
     }
     
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        
+    }
     
     // MARK: - helper methods
     
