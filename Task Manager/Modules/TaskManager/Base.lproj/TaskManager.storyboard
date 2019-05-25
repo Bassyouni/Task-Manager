@@ -157,6 +157,9 @@
                                                 <real key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveEditButtonPressed:" destination="bWl-Fg-W1p" eventType="touchUpInside" id="n1k-Y4-6Ca"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyB-ib-OLB" customClass="RoundedShadowButton" customModule="Task_Manager" customModuleProvider="target">
                                         <rect key="frame" x="167.66666666666663" y="0.0" width="157.33333333333337" height="50"/>

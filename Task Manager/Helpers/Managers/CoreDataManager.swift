@@ -20,16 +20,16 @@ class CoreDataManager {
         return appDelegate.persistentContainer.viewContext
     }
     
-    func saveContext(completion: (_ success: Bool) -> ()) {
+    func saveContext(completion: ((_ success: Bool) -> ())?) {
         do
         {
             try managedContext.save()
-            completion(true)
+            completion?(true)
         }
         catch
         {
             debugPrint("Could not save: \(error.localizedDescription)")
-            completion(false)
+            completion?(false)
         }
     }
     
@@ -62,7 +62,7 @@ class CoreDataManager {
         }
     }
     
-    func deleteObject(_ object: NSManagedObject, completion: (_ success: Bool) -> ()) {
+    func deleteObject(_ object: NSManagedObject, completion: ((_ success: Bool) -> ())? ) {
         managedContext.delete(object)
         saveContext(completion: completion)
     }

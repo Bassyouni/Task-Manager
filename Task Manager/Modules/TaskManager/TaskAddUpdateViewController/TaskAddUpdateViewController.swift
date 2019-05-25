@@ -24,7 +24,7 @@ class TaskAddUpdateViewController: BaseViewController {
     // MARK: - variables
     var taskModel: TaskModel?
     
-    private var selctedCategoryColor: SystemColors = .orange
+    private var selectedCategoryColor: SystemColors = .orange
     private var selectedCategoryName: String?
     private var selectedCategoryModel: CategoryModel?
     
@@ -77,11 +77,12 @@ class TaskAddUpdateViewController: BaseViewController {
             if let categoryName = category.name, let categoryColor = SystemColors(rawValue: category.color ?? "")  {
                 categoryTextField.text = categoryName
                 categoryColorView.backgroundColor = categoryColor.uiColor
+                selectedCategoryName = categoryName
+                selectedCategoryColor = categoryColor
             }
         }
     }
 
-    
     fileprivate func configureData() {
         categoriesArray = CoreDataManager.shared.fetchModels(entityType: CategoryModel.self)
     }
@@ -108,7 +109,7 @@ class TaskAddUpdateViewController: BaseViewController {
 
             if let categoryColor = SystemColors(rawValue: self.categoriesArray[index].color ?? "") {
                 self.categoryColorView.backgroundColor = categoryColor.uiColor
-                self.selctedCategoryColor = categoryColor
+                self.selectedCategoryColor = categoryColor
             }
             
         }
@@ -118,43 +119,60 @@ class TaskAddUpdateViewController: BaseViewController {
         view.endEditing(true)
         showColorPicker { (pickedColor) in
             self.categoryColorView.backgroundColor = pickedColor.uiColor
-            self.selctedCategoryColor = pickedColor
+            self.selectedCategoryColor = pickedColor
         }
     }
-    
 
     @IBAction func deleteButtonPressed(_ sender: Any) {
-    
-    }
+        if let taskModel = taskModel {
+            CoreDataManager.shared.deleteObject(taskModel) { (success) in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                else {
+                    self.showError(message: "An error occurred while deleting\nplease try again later")
+                }
+            }
+        }
         
-
+    }
+    
     @IBAction func saveEditButtonPressed(_ sender: Any) {
         
         selectedCategoryName = categoryTextField.text
         
         if validate()
         {
-            let taskModel = TaskModel(context: CoreDataManager.shared.managedContext)
-            taskModel.title = taskNameTextField.text
+            var taskModelToBeSaved: TaskModel!
             
-            taskModel.category = selectedCategoryModel
+            if let taskModel = taskModel {
+                taskModelToBeSaved = taskModel
+            }
+            else {
+                taskModelToBeSaved = TaskModel(context: CoreDataManager.shared.managedContext)
+            }
+            
+            taskModelToBeSaved.title = taskNameTextField.text
+            
+            taskModelToBeSaved.category = selectedCategoryModel
             
             let fomratter = DateFormatter()
             fomratter.dateStyle = .medium
-            taskModel.completionDate = fomratter.date(from: complitionDateTextField.text!)
+            taskModelToBeSaved.completionDate = fomratter.date(from: complitionDateTextField.text!)
             
             CoreDataManager.shared.saveContext { (success) in
                 if success {
                     self.navigationController?.popViewController(animated: true)
                 }
                 else {
-                    showError(message: "An error occurred while saving\nplease try again later")
+                    self.showError(message: "An error occurred while saving\nplease try again later")
                 }
             }
 
         }
 
     }
+    
     
     // MARK: - helper methods
     fileprivate func validate() -> Bool {
@@ -171,12 +189,12 @@ class TaskAddUpdateViewController: BaseViewController {
     
         for category in categories
         {
-            if category.name?.lowercased() == selectedCategoryName?.lowercased() && category.color != selctedCategoryColor.rawValue
+            if category.name?.lowercased() == selectedCategoryName?.lowercased() && category.color != selectedCategoryColor.rawValue
             {
                 showError(message: "A category with this name exist\nPlease change name or select a category from the list")
                 return false
             }
-            else if category.name?.lowercased() == selectedCategoryName?.lowercased() && category.color == selctedCategoryColor.rawValue {
+            else if category.name?.lowercased() == selectedCategoryName?.lowercased() && category.color == selectedCategoryColor.rawValue {
                 selectedCategoryModel = category
             }
         }
@@ -184,7 +202,7 @@ class TaskAddUpdateViewController: BaseViewController {
         if selectedCategoryModel == nil {
             selectedCategoryModel = CategoryModel(context: CoreDataManager.shared.managedContext)
             selectedCategoryModel?.name = selectedCategoryName
-            selectedCategoryModel?.color = selctedCategoryColor.rawValue
+            selectedCategoryModel?.color = selectedCategoryColor.rawValue
         }
         
         return true
