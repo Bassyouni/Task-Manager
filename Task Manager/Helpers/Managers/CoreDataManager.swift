@@ -62,4 +62,9 @@ class CoreDataManager {
         }
     }
     
+    func deleteObject(_ object: NSManagedObject, completion: (_ success: Bool) -> ()) {
+        managedContext.delete(object)
+        saveContext(completion: completion)
+    }
+    
 }
