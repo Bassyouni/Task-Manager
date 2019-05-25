@@ -20,12 +20,7 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var taskNameContainerView: UIView!
     @IBOutlet weak var complitionDateContainerView: UIView!
     @IBOutlet weak var categoryContainerView: UIView!
-    
-    // MARK: - variables
-    var taskModel: TaskModel! {
-        didSet { bindUI() }
-    }
-    
+    @IBOutlet weak var statusImageView: UIImageView!
     
     // MARK: - cell lifecycle
     override func awakeFromNib() {
@@ -40,7 +35,7 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     
-    fileprivate func bindUI() {
+    func bindUI(taskModel: TaskModel, isCompleted: Bool) {
         titleValueLabel.text = taskModel.title
         
         if let completionDate = taskModel.completionDate {
@@ -61,6 +56,15 @@ class TaskTableViewCell: UITableViewCell {
         else
         {
             categoryContainerView.isHidden = true
+        }
+        
+        if isCompleted
+        {
+            statusImageView.image = #imageLiteral(resourceName: "tickIcon")
+        }
+        else
+        {
+            statusImageView.image = #imageLiteral(resourceName: "pendingIcon")
         }
         
     }

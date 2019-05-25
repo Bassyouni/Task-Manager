@@ -24,6 +24,9 @@ class TasksListHomeViewController: BaseViewController {
     
     // MARK: - variables
     var tasksArray = [TaskModel]()
+    var groupedTasks =  [[TaskModel]]()
+    let completedStringConstant = "Completed"
+    let pendingStringConstant = "Pending"
     
     
     // MARK: - view lifecycle
@@ -55,6 +58,7 @@ class TasksListHomeViewController: BaseViewController {
     
     fileprivate func configueData() {
         tasksArray = CoreDataManager.shared.fetchModels(entityType: TaskModel.self)
+        self.groupData()
         
         if tasksArray.count > 0 {
             tableView.isHidden = false
@@ -77,8 +81,8 @@ class TasksListHomeViewController: BaseViewController {
         }
     }
     
-    fileprivate func handleCellSelection(at index: Int) {
-        navigateToTaskAddUpdateViewController(withModel: tasksArray[index])
+    fileprivate func handleCellSelection(at indexPath: IndexPath) {
+        navigateToTaskAddUpdateViewController(withModel: groupedTasks[indexPath.section][indexPath.row])
     }
     
     
@@ -90,9 +94,25 @@ class TasksListHomeViewController: BaseViewController {
     }
     
     fileprivate func removeTask(atIndexPath indexPath: IndexPath) {
-        CoreDataManager.shared.deleteObject(tasksArray[indexPath.row]) { (_) in
+        CoreDataManager.shared.deleteObject(groupedTasks[indexPath.section][indexPath.row]) { (_) in
             
         }
+    }
+    
+    fileprivate func groupData() {
+        let groupedTasksDictionary = Dictionary(grouping: tasksArray) { (model) -> String in
+            if let date = model.completionDate {
+                if date <= Date() {
+                    return completedStringConstant
+                }
+            }
+            return pendingStringConstant
+        }
+        
+        groupedTasks.removeAll()
+        groupedTasks.append(groupedTasksDictionary[pendingStringConstant] ?? [])
+        groupedTasks.append(groupedTasksDictionary[completedStringConstant] ?? [])
+
     }
     
 }
@@ -100,21 +120,25 @@ class TasksListHomeViewController: BaseViewController {
 // MARK: - table
 extension TasksListHomeViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return groupedTasks.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasksArray.count
+        return groupedTasks[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.cellIdentifier, for: indexPath) as? TaskTableViewCell
         {
-            cell.taskModel = tasksArray[indexPath.row]
+            cell.bindUI(taskModel: groupedTasks[indexPath.section][indexPath.row], isCompleted: indexPath.section == 1)  
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        handleCellSelection(at: indexPath.row)
+        handleCellSelection(at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -135,6 +159,17 @@ extension TasksListHomeViewController: UITableViewDelegate, UITableViewDataSourc
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         
         return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return (groupedTasks[0].count > 0) ? pendingStringConstant : nil
+        case 1:
+            return (groupedTasks[1].count > 0) ? completedStringConstant : nil
+        default:
+            return nil
+        }
     }
 }
 

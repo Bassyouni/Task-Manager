@@ -133,14 +133,24 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pendingIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pM4-6a-Pic">
+                                        <rect key="frame" x="6.5" y="17.5" width="37" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="37" id="1CG-R3-ipz"/>
+                                            <constraint firstAttribute="height" constant="22" id="Sh4-dy-kDG"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="pX9-3e-14p" firstAttribute="top" secondItem="a8a-Jt-9Rq" secondAttribute="bottom" constant="3.5" id="0TD-hj-C7e"/>
                                     <constraint firstItem="a8a-Jt-9Rq" firstAttribute="leading" secondItem="nEo-iR-uTR" secondAttribute="leading" id="93H-Y8-Qf0"/>
+                                    <constraint firstItem="pM4-6a-Pic" firstAttribute="centerX" secondItem="nEo-iR-uTR" secondAttribute="centerX" id="H4M-ap-ZbF"/>
                                     <constraint firstAttribute="bottom" secondItem="pX9-3e-14p" secondAttribute="bottom" id="Mwh-qu-HOM"/>
+                                    <constraint firstAttribute="bottom" secondItem="pM4-6a-Pic" secondAttribute="bottom" id="NAb-tw-wYH"/>
                                     <constraint firstItem="pX9-3e-14p" firstAttribute="centerX" secondItem="nEo-iR-uTR" secondAttribute="centerX" id="cK0-LX-GUG"/>
                                     <constraint firstItem="a8a-Jt-9Rq" firstAttribute="top" secondItem="nEo-iR-uTR" secondAttribute="top" id="h6h-z0-zBn"/>
+                                    <constraint firstItem="pM4-6a-Pic" firstAttribute="top" secondItem="a8a-Jt-9Rq" secondAttribute="bottom" constant="3.5" id="j3X-03-bPd"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="vZu-nT-sPv"/>
                                     <constraint firstAttribute="trailing" secondItem="a8a-Jt-9Rq" secondAttribute="trailing" id="vpJ-X2-3tc"/>
                                 </constraints>
@@ -180,6 +190,7 @@
                 <outlet property="completionDateValueLabel" destination="02w-Y7-jEW" id="21b-N8-85E"/>
                 <outlet property="complitionDateContainerView" destination="HaO-EI-jed" id="9yL-6J-vCE"/>
                 <outlet property="containerView" destination="EMQ-n4-sHe" id="tYN-3X-tqw"/>
+                <outlet property="statusImageView" destination="pM4-6a-Pic" id="id2-Ki-I1Y"/>
                 <outlet property="taskNameContainerView" destination="vDG-fC-6ab" id="XnW-Qe-ouA"/>
                 <outlet property="titleLabel" destination="rZ0-as-KGW" id="Vmp-rs-kEq"/>
                 <outlet property="titleValueLabel" destination="oe3-1S-RPc" id="E2b-xf-vhS"/>
@@ -190,5 +201,6 @@
     <resources>
         <image name="calenderIcon" width="22" height="23.5"/>
         <image name="noteIcon" width="24" height="23.5"/>
+        <image name="pendingIcon" width="12.5" height="12.5"/>
     </resources>
 </document>
