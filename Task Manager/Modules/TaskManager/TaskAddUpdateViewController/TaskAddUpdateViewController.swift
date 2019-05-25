@@ -21,7 +21,13 @@ class TaskAddUpdateViewController: BaseViewController {
     
     
     // MARK: - variables
-    var taskModel: AnyObject?
+    var taskModel: TaskModel?
+    
+    private var selctedCategoryColor: SystemColors = .orange
+    private var selectedCategoryName: String?
+    private var selectedCategoryModel: CategoryModel?
+    
+    private var categoriesArray = [CategoryModel]()
     
     
     // MARK: - static methods
@@ -50,14 +56,31 @@ class TaskAddUpdateViewController: BaseViewController {
             saveEditButton.setTitle("Create", for: .normal)
         }
         
+        configureInitalData()
+        
         categoryColorView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(categoryColorPressed)))
         
         categoryTextField.delegate = self
         taskNameTextField.delegate = self
     }
     
-    fileprivate func configureData() {
+    fileprivate func configureInitalData() {
+        guard let taskModel = taskModel else { return }
+        taskNameTextField.text = taskModel.title
+        complitionDateTextField.text = getFormattedStringFrom(date: taskModel.completionDate)
         
+        if let category = taskModel.category
+        {
+            if let categoryName = category.name, let categoryColor = SystemColors(rawValue: category.color ?? "")  {
+                categoryTextField.text = categoryName
+                categoryColorView.backgroundColor = categoryColor.uiColor
+            }
+        }
+    }
+
+    
+    fileprivate func configureData() {
+        categoriesArray = CoreDataManager.shared.fetchModels(entityType: CategoryModel.self)
     }
 
     
@@ -65,27 +88,106 @@ class TaskAddUpdateViewController: BaseViewController {
     @IBAction func selectDateButtonPressed(_ sender: Any) {
         view.endEditing(true)
         DatePickerViewController.showDatePicker { (date) in
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            self.complitionDateTextField.text = formatter.string(from: date)
+            self.complitionDateTextField.text = self.getFormattedStringFrom(date: date)
         }
     }
     
     @IBAction func selectCategoryButtonPressed(_ sender: Any) {
         view.endEditing(true)
-        TypePickerViewController.ShowPickerWith(title: "Select Category", items: ["Save", "Medic"]) { (index, value) in
+        
+        let categoriesNames = categoriesArray.map { (model) -> String in
+            return model.name ?? "-"
+        }
+        
+        TypePickerViewController.ShowPickerWith(title: "Select Category", items: categoriesNames) { (index, value) in
             self.categoryTextField.text = value
+            self.selectedCategoryName = value
+
+            if let categoryColor = SystemColors(rawValue: self.categoriesArray[index].color ?? "") {
+                self.categoryColorView.backgroundColor = categoryColor.uiColor
+                self.selctedCategoryColor = categoryColor
+            }
+            
         }
     }
     
     @objc fileprivate func categoryColorPressed() {
+        view.endEditing(true)
         showColorPicker { (pickedColor) in
             self.categoryColorView.backgroundColor = pickedColor.uiColor
+            self.selctedCategoryColor = pickedColor
         }
     }
     
+    @IBAction func saveEditButtonPressed(_ sender: Any) {
+        
+        selectedCategoryName = categoryTextField.text
+        
+        if validate()
+        {
+            let taskModel = TaskModel(context: CoreDataManager.shared.managedContext)
+            taskModel.title = taskNameTextField.text
+            
+            taskModel.category = selectedCategoryModel
+            
+            let fomratter = DateFormatter()
+            fomratter.dateStyle = .medium
+            taskModel.completionDate = fomratter.date(from: complitionDateTextField.text!)
+            
+            CoreDataManager.shared.saveContext { (success) in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                else {
+                    showError(message: "An error occurred while saving\nplease try again later")
+                }
+            }
+
+        }
+    }
     
     // MARK: - helper methods
+    fileprivate func validate() -> Bool {
+        if taskNameTextField.text == ""
+        {
+            showError(message: "Please fill in the task name")
+            return false
+        }
+        return validateCategory()
+    }
+    
+    fileprivate func validateCategory() -> Bool {
+        let categories = CoreDataManager.shared.fetchModels(entityType: CategoryModel.self)
+    
+        for category in categories
+        {
+            if category.name?.lowercased() == selectedCategoryName?.lowercased() && category.color != selctedCategoryColor.rawValue
+            {
+                showError(message: "A category with this name exist\nPlease change name or select a category from the list")
+                return false
+            }
+            else if category.name?.lowercased() == selectedCategoryName?.lowercased() && category.color == selctedCategoryColor.rawValue {
+                selectedCategoryModel = category
+            }
+        }
+        
+        if selectedCategoryModel == nil {
+            selectedCategoryModel = CategoryModel(context: CoreDataManager.shared.managedContext)
+            selectedCategoryModel?.name = selectedCategoryName
+            selectedCategoryModel?.color = selctedCategoryColor.rawValue
+        }
+        
+        return true
+    }
+    
+    fileprivate func getFormattedStringFrom(date: Date?) -> String {
+        guard let date = date else {
+            return ""
+        }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
+    }
     
     
 }
@@ -93,6 +195,7 @@ class TaskAddUpdateViewController: BaseViewController {
 extension TaskAddUpdateViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
+        
         return true
     }
 }
